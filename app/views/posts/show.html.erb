@@ -1,0 +1,24 @@
+<div class = "d-flex flex-column container">
+  <%= render @post %>
+  <div class = "d-flex ms-auto">
+    <%= link_to "Back to Forun", @foruns.find(@post.forun.id), class:"btn btn-outline-secondary mt-2 mb-4"%>
+    <% if Current.user.id === @post.id_owner%>
+      <%= button_to "Destroy this post", [@post.forun, @post], method: :delete, class:"btn btn-outline-danger mt-2 mb-4" %>
+    <% end %>
+  </div>
+  <div class="d-flex flex-column container" style = "width: 50%">
+    <%if @var %>
+      <%= render "comments/form"%>
+    <% end %>
+    <div id="comments">
+      <% @post.comments.each do |comment| %>
+        <%= render comment %>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+
+

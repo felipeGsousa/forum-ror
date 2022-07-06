@@ -1,0 +1,12 @@
+<%= form_for([@post , @post.comments.build]) do |form| %>
+  <div class="d-flex flex-column container">
+    <div>
+      <%= form.label :body, style: "display: block" %>
+      <%= form.text_area :body, class:"form-control" %>
+    </div>
+
+    <div class="ms-auto">
+      <%= form.submit class:"btn btn-outline-primary mt-2 mb-4"%>
+    </div>
+  </div>
+<% end %>

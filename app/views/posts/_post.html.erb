@@ -1,0 +1,15 @@
+<% if post.id%>
+    <div class="card mt-4">
+        <div class="d-flex card-header"> 
+            <h3><%= post.title %></h3>
+            <h6 class="ms-auto"><%= post.postdate %></h6>
+        </div>
+        <div class="card-body">
+            <h3 class="card-title"><%= post.username %></h3>
+            <div class="card-text"><%= post.body %></div>
+        </div>
+    </div>
+<% end %>
+
+
+

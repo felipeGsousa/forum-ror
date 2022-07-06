@@ -1,0 +1,6 @@
+<%= form_with url:leave_path, :remote => true, method: :delete do |form| %>
+  <%= form.hidden_field :forun_id, :value => @forun.id %>
+  <div>
+    <%= form.submit "Leave Forum", class:"btn btn-outline-danger" %>
+  </div>
+<% end %>

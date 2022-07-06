@@ -1,0 +1,17 @@
+<% if comment.id%>
+  <div class="d-flex flex-column container card mt-4">
+    <div class="d-flex card-header"> 
+      <h3><%= comment.username %></h3>
+      <h6 class="ms-auto"><%= comment.commentdate %></h6>
+    </div>
+    <div class="card-body">
+        <div class="card-text"><%= comment.body %></div>
+    </div>
+    <% if Current.user.id === comment.id_owner%>
+      <div class="ms-auto">
+        <%= button_to "Destroy this comment", [comment.post, comment], method: :delete, class:"btn btn-outline-danger mt-2 mb-4" %>
+      </div>
+    <% end %>
+  </div>
+<% end %>
+

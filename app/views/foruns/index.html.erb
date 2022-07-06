@@ -1,0 +1,26 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="d-flex flex-column justify-content-center container"> 
+  <div class="d-flex">
+    <h1>Forums:</h1>
+    <div class="ms-auto">
+      <%= link_to "New forum", new_forun_path, class:"btn btn-outline-primary"%>
+    </div>
+  </div>
+  <br>
+  <% @foruns.each do |forun| %>
+    <div class="card mt-4">
+      <div class="d-flex card-header"> 
+        <h6><%= forun.nome%></h6>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= forun.topico %></h5>
+      </div>
+      <div class="d-flex card-footer justify-content-end">
+        <%= link_to "Go to forum", forun , class:"btn btn-outline-primary"%>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+

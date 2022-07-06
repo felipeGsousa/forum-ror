@@ -1,0 +1,20 @@
+<div class="d-flex flex-column justify-content-center container">
+<% @comments.each do |comment| %>
+    <% if comment.id_owner == Current.user.id%>
+        <div class="card mt-4">
+            <div class="d-flex card-header">
+                <div>
+                    <h6><%= @foruns.find(@posts.find(comment.post.id).forun.id).nome%></h6>
+                    <h6><%= @posts.find(comment.post.id).title%></h6>
+                </div>
+                <h6 class="ms-auto"><%= comment.commentdate %></h6>
+            </div>
+            <div class="card-body">
+                <p class="card-text"><%= comment.body %></p>
+            </div>
+            <div class="d-flex card-footer justify-content-end">
+                <%= link_to "Go to", @foruns.find(@posts.find(comment.post.id).forun.id), class:"btn btn-outline-primary"%>
+            </div>
+        </div>
+    <% end %>
+<% end %>

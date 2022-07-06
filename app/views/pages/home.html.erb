@@ -1,0 +1,29 @@
+<div class = "d-flex container">
+    <div class = "d-flex flex-column container" style = "width: 15%">
+        <h2>My Forums</h2>
+        <% @user_foruns.each do |user_forun| %>
+            <% if user_forun.user == Current.user%>
+                <%= render user_forun.forun %> 
+                <div class="ms-auto">
+                    <%= link_to "Go to forum", user_forun.forun , class:"btn btn-outline-primary mt-2 mb-4"%>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+    <div class = "d-flex flex-column container" style = "width: 65%">
+        <h2>My Forums recent posts</h2>
+        <% Current.user.foruns.each do |foruns_user| %>
+            <% @posts.each do |post| %>
+                <% if post.forun.id == foruns_user.id%> 
+                    <%= render post %>
+                    <div class="ms-auto">
+                        <%= link_to "Go to post", post , class:"btn btn-outline-primary"%>
+                    </div>
+                <% end %>
+            <% end %>
+        <% end %>
+    </div>
+    <div class="ms-auto">
+        <%= link_to "New forum", new_forun_path, class:"btn btn-outline-primary" %>
+    </div>
+</div>

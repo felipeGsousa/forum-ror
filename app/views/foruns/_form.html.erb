@@ -1,0 +1,30 @@
+<%= form_with(model: forun) do |form| %>
+  <div class="d-flex flex-column">
+    <% if forun.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(forun.errors.count, "error") %> prohibited this forun from being saved:</h2>
+
+        <ul>
+          <% forun.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div>
+      <%= form.label :nome, style: "display: block" %>
+      <%= form.text_field :nome, class:"form-control"%>
+    </div>
+
+    <div>
+      <%= form.label :topico, style: "display: block" %>
+      <%= form.text_field :topico, class:"form-control"%>
+    </div>
+
+    <div class="ms-auto">
+      <%= form.submit class:"btn btn-outline-primary mt-3"%>
+      <%= link_to "Back to home", "/", class:"btn btn-outline-secondary mt-3" %>
+    </div>
+  </div>
+<% end %>

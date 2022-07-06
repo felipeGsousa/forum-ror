@@ -1,0 +1,6 @@
+<%= form_with url:join_path, :remote => true do |form| %>
+  <%= form.hidden_field :forun_id, :value => @forun.id %>
+  <div>
+    <%= form.submit "Join Forum", class:"btn btn-outline-primary" %>
+  </div>
+<% end %>

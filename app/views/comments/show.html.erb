@@ -1,0 +1,9 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @comment %>
+
+<div>
+  <% if Current.user.id === @comment.id_owner%>
+    <%= button_to "Destroy this comment", @comment, method: :delete %>
+  <% end %> 
+</div>
